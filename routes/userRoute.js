@@ -6,7 +6,7 @@ const authenticate = require("../middleware/authenticate");
 require("../db/connection");
 const User = require("../model/userSchema");
 
-router.get("/", authenticate, (req, res) => {
+router.get("/", (req, res) => {
   res.send("Home from router.js");
 });
 
