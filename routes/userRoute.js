@@ -17,23 +17,21 @@ router.post("/register", async (req, res) => {
     return res.status(422).json({ error: "All fields are mandetory." });
   }
 
-  try {
-    const userExist = await User.findOne({ email: email });
+  const userExist = await User.findOne({ email: email });
 
-    if (userExist) {
-      return res.status(422).json({ error: "Email already exist." });
-    } else {
-      const user = new User({
-        name,
-        email,
-        password,
-      });
-      await user.save();
+  if (userExist) {
+    return res.status(422).json({ error: "Email already exist." });
+  } else {
+    const user = new User({
+      name,
+      email,
+      password,
+    });
+    await user.save();
 
-      res.status(201).json({ message: "User registered successfully", user });
-    }
-  } catch (error) {
-    console.log(error);
+    return res
+      .status(201)
+      .json({ message: "User registered successfully", user });
   }
 });
 

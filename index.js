@@ -14,7 +14,7 @@ app.use(require("./routes/jobsRoute"));
 
 // require("./db/connection");
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   connect();
