@@ -14,7 +14,7 @@ app.use(require("./routes/jobsRoute"));
 
 require("./db/connection");
 
-const PORT = process.env.PORT;
+const PORT = 4040;
 
 app.listen(PORT, () => {
   console.log(`server started on http://localhost:${PORT}`);
